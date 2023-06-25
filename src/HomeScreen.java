@@ -98,19 +98,19 @@ public class HomeScreen extends javax.swing.JFrame {
         jLabel4.setText("jLabel4");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        pack();
+        setBounds(0, 0, 1382, 739);
     }// </editor-fold>//GEN-END:initComponents
 
     private void surveyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_surveyButtonActionPerformed
         // TODO add your handling code here:
-        setVisible(false);
         new ResultsPanel().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_surveyButtonActionPerformed
 
     private void fillButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fillButtonActionPerformed
         // TODO add your handling code here:
-        setVisible(false);
         new SurveyScreen().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_fillButtonActionPerformed
 
     /**
@@ -142,7 +142,7 @@ public class HomeScreen extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+            public void run() {   
                 new HomeScreen().setVisible(true);
             }
         });

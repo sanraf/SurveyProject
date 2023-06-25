@@ -68,7 +68,7 @@ public class SurveyScreen extends javax.swing.JFrame {
         
            myOther=" (Other) ";
         }else{
-            myOther=" (None) ";
+            myOther=" (Other) ";
         }
         return myPizza+""+myPasta+""+myPap+""+myChick+""+myBeef+""+myOther;
     }
@@ -203,8 +203,9 @@ public class SurveyScreen extends javax.swing.JFrame {
             getHobbyData();
             
             JOptionPane.showMessageDialog(this, "Data submitted successfully ".toUpperCase());
-            setVisible(false);
+           
             new HomeScreen().setVisible(true);
+            this.dispose();
        
         
        
@@ -248,11 +249,11 @@ public class SurveyScreen extends javax.swing.JFrame {
         return true;
     }
     
-    public boolean isInteger(String contact){
+    public boolean isInteger(){
         
         try{
             
-            Integer.parseInt(contact);
+            Long.parseLong(contactID.getText());
             return true;
         }catch(NumberFormatException e){
             errorTextFieldColor(contactID);
@@ -346,6 +347,10 @@ public class SurveyScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
+        buttonGroup4 = new javax.swing.ButtonGroup();
         jLabel8 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -534,35 +539,45 @@ public class SurveyScreen extends javax.swing.JFrame {
         eatLabel.setText("Ilike to eat out");
         getContentPane().add(eatLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 423, 160, 25));
 
+        buttonGroup4.add(SA4);
         SA4.setOpaque(false);
         getContentPane().add(SA4, new org.netbeans.lib.awtextra.AbsoluteConstraints(723, 552, -1, -1));
 
+        buttonGroup3.add(SA3);
         SA3.setOpaque(false);
         getContentPane().add(SA3, new org.netbeans.lib.awtextra.AbsoluteConstraints(723, 509, -1, -1));
 
+        buttonGroup2.add(SA2);
         SA2.setOpaque(false);
         getContentPane().add(SA2, new org.netbeans.lib.awtextra.AbsoluteConstraints(723, 466, -1, -1));
 
         SA1.setBackground(new java.awt.Color(51, 255, 51));
+        buttonGroup1.add(SA1);
         SA1.setForeground(new java.awt.Color(255, 51, 51));
         SA1.setOpaque(false);
         getContentPane().add(SA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(723, 423, -1, -1));
 
+        buttonGroup1.add(A1);
         A1.setOpaque(false);
         getContentPane().add(A1, new org.netbeans.lib.awtextra.AbsoluteConstraints(853, 423, -1, -1));
 
+        buttonGroup2.add(A2);
         A2.setOpaque(false);
         getContentPane().add(A2, new org.netbeans.lib.awtextra.AbsoluteConstraints(853, 466, -1, -1));
 
+        buttonGroup3.add(A3);
         A3.setOpaque(false);
         getContentPane().add(A3, new org.netbeans.lib.awtextra.AbsoluteConstraints(853, 509, -1, -1));
 
+        buttonGroup4.add(A4);
         A4.setOpaque(false);
         getContentPane().add(A4, new org.netbeans.lib.awtextra.AbsoluteConstraints(853, 552, -1, -1));
 
+        buttonGroup4.add(N4);
         N4.setOpaque(false);
         getContentPane().add(N4, new org.netbeans.lib.awtextra.AbsoluteConstraints(969, 552, -1, -1));
 
+        buttonGroup3.add(N3);
         N3.setOpaque(false);
         N3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -571,18 +586,23 @@ public class SurveyScreen extends javax.swing.JFrame {
         });
         getContentPane().add(N3, new org.netbeans.lib.awtextra.AbsoluteConstraints(969, 509, -1, -1));
 
+        buttonGroup2.add(N2);
         N2.setOpaque(false);
         getContentPane().add(N2, new org.netbeans.lib.awtextra.AbsoluteConstraints(969, 466, -1, -1));
 
+        buttonGroup1.add(N1);
         N1.setOpaque(false);
         getContentPane().add(N1, new org.netbeans.lib.awtextra.AbsoluteConstraints(969, 423, -1, -1));
 
+        buttonGroup1.add(D1);
         D1.setOpaque(false);
         getContentPane().add(D1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1098, 423, -1, -1));
 
+        buttonGroup2.add(D2);
         D2.setOpaque(false);
         getContentPane().add(D2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1098, 466, -1, -1));
 
+        buttonGroup3.add(D3);
         D3.setOpaque(false);
         D3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -591,12 +611,15 @@ public class SurveyScreen extends javax.swing.JFrame {
         });
         getContentPane().add(D3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1098, 509, -1, -1));
 
+        buttonGroup4.add(D4);
         D4.setOpaque(false);
         getContentPane().add(D4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1098, 552, -1, -1));
 
+        buttonGroup4.add(SD4);
         SD4.setOpaque(false);
         getContentPane().add(SD4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 552, -1, -1));
 
+        buttonGroup3.add(SD3);
         SD3.setOpaque(false);
         SD3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -605,9 +628,11 @@ public class SurveyScreen extends javax.swing.JFrame {
         });
         getContentPane().add(SD3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 509, -1, -1));
 
+        buttonGroup2.add(SD2);
         SD2.setOpaque(false);
         getContentPane().add(SD2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 466, -1, -1));
 
+        buttonGroup1.add(SD1);
         SD1.setOpaque(false);
         getContentPane().add(SD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 423, -1, -1));
 
@@ -752,7 +777,7 @@ public class SurveyScreen extends javax.swing.JFrame {
         
      
 ///https://github.com/sanraf/SurveyProject.git
-        if(emptyTextFieldValidation()==true && isInteger(contactID.getText())==true
+        if(emptyTextFieldValidation()==true && isInteger()==true
                 && dateValidation()==true){
             if( RadioButtonValidation()==true){
                 getUserData();
@@ -820,6 +845,10 @@ public class SurveyScreen extends javax.swing.JFrame {
     private javax.swing.JTextField ageID;
     private javax.swing.JLabel ageIDTEXT;
     private javax.swing.JCheckBox beef;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.JCheckBox chick;
     private javax.swing.JTextField contactID;
     private com.toedter.calendar.JDateChooser dateID;
