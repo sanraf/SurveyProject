@@ -10,8 +10,7 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.UIManager;
-import javax.swing.plaf.ColorUIResource;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -221,6 +220,7 @@ public class SurveyScreen extends javax.swing.JFrame {
         textField.setForeground(new Color(255,255,51));
         textField.setBackground(new Color(240,0,0,100));
         textField.setText(" error: field required ");
+        
     }
     
     //Clears textField with error message to default state
@@ -228,7 +228,7 @@ public class SurveyScreen extends javax.swing.JFrame {
         
      textField.setForeground(new Color(0,0,0));
      textField.setBackground(new Color(51,51,255));
-     if(textField.getText().equals(" error: field required ")){
+     if(textField.getText().equals(" error: field required ") || textField.getText().equals(" Digits are expected for contact Field ")){
          textField.setText("");
      }
         
@@ -255,6 +255,8 @@ public class SurveyScreen extends javax.swing.JFrame {
             Integer.parseInt(contact);
             return true;
         }catch(NumberFormatException e){
+            errorTextFieldColor(contactID);
+            contactID.setText(" Digits are expected for contact Field ");
             return false;
             
         }
@@ -279,10 +281,8 @@ public class SurveyScreen extends javax.swing.JFrame {
             return false;
         }else if(contactID.getText().length()>15 || contactID.getText().length()<10){
             
+            errorTextFieldColor(contactID);
             JOptionPane.showMessageDialog(this, "10 to 15 digits allowed for Contact Number");
-            return false;
-        }else if(isInteger(contactID.getText())==true){
-            JOptionPane.showMessageDialog(null, "Digits are expected for contact Field");
             return false;
         }else if(ageID.getText().equals("")){
             
@@ -290,7 +290,8 @@ public class SurveyScreen extends javax.swing.JFrame {
             return false;
         }else if(Integer.parseInt(ageID.getText())<5 || Integer.parseInt(ageID.getText())>120){
             
-            JOptionPane.showMessageDialog(this, "You must be at least 5 years OR not more than 120 year");
+            errorTextFieldColor(ageID);
+            JOptionPane.showMessageDialog(this, "You must be at least 5 years OR not more than 120");
             return false;
             
         }
@@ -751,7 +752,8 @@ public class SurveyScreen extends javax.swing.JFrame {
         
      
 ///https://github.com/sanraf/SurveyProject.git
-        if(emptyTextFieldValidation()==true && dateValidation()==true){
+        if(emptyTextFieldValidation()==true && isInteger(contactID.getText())==true
+                && dateValidation()==true){
             if( RadioButtonValidation()==true){
                 getUserData();
             }
